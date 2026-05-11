@@ -36,7 +36,7 @@ def mostrar_ayuda():
     }
     
 def iniciar_agente():
-    NOMBRE_BOT = "coronel sanders"
+    NOMBRE_BOT = "Enrique"
     PREFIJO = "!"
     hora_inicio = datetime.datetime.now()
     
