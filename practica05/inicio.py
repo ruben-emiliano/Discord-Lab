@@ -3,6 +3,7 @@ import os
 import re
 from dotenv import load_dotenv
 
+
 def mostrar_bienvenida():
     """Retorna la lista de comandos disponibles."""
     return (
@@ -11,6 +12,17 @@ def mostrar_bienvenida():
         "📜 Esccriba !Exit para salir del Agente:"
     )
 
+def buscar_en_diccionario(termino):
+    if not termino:
+        return "Debes escribir qué término quieres definir. Ej: '!definir list'"
+ 
+    # Base de datos simplificada (puedes reutilizar la de la práctica anterior)
+    conocimiento = {
+        "variable": "Un espacio en memoria para almacenar datos.",
+        "lista": "Colección mutable de elementos.",
+        "tupla": "Colección inmutable de elementos (no se puede cambiar)."
+    }
+    return conocimiento.get(termino, f" No encontré '{termino}' en mi base de datos.")
 def main(entrada):
     
         PREFIJO = "!"
@@ -32,7 +44,10 @@ def main(entrada):
             print(mostrar_bienvenida())
             return mostrar_bienvenida()
             
-            
+        elif comando== "gestor":
+            print(buscar_en_diccionario(argumento))
+            return (buscar_en_diccionario(argumento))
+                 
         else:
             print(f" Error: Comando '!{comando}' no reconocido.")
             return f" Error: Comando '!{comando}' no reconocido."
