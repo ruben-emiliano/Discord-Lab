@@ -2,7 +2,8 @@ import discord
 import os
 import re
 from dotenv import load_dotenv
-from practica01.gestor_comando import buscar_en_diccionario
+from practica01.gestor_comando import analizar_comando,buscar_en_diccionario,validar_variable
+
 
 def mostrar_bienvenida():
     """Retorna la lista de comandos disponibles."""
@@ -12,11 +13,11 @@ def mostrar_bienvenida():
         "📜 Esccriba !Exit para salir del Agente:"
     )
 
+
 def buscar_en_diccionario(termino):
     if not termino:
         return "Debes escribir qué término quieres definir. Ej: '!definir list'"
  
-    # Base de datos simplificada (puedes reutilizar la de la práctica anterior)
     conocimiento = {
         "variable": "Un espacio en memoria para almacenar datos.",
         "lista": "Colección mutable de elementos.",
